@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1amatth5udap"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2rrvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6357i"]
+size = Vector2(68, 718.5)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2rrvb")
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="SpawnContainer" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1163, 51)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1163, 198)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1166, 278)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1164, 358)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1168, 523)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1168, 441)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1165, 599)
+
+[node name="Marker2D8" type="Marker2D" parent="SpawnContainer"]
+position = Vector2(1163, 110)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverTela" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverTela"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverTela/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Fim de Jogo!!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 36
+text = "  Jogar Novamente?  "
+
+[node name="TotalAcertos" type="Label" parent="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 30
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cima" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Acertos" type="Label" parent="CanvasLayer/VBoxContainer/Cima"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Acertos:"
+
+[node name="ValorAcertos" type="Label" parent="CanvasLayer/VBoxContainer/Cima"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="Meio" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Baixo" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Linguagem" type="Label" parent="CanvasLayer/VBoxContainer/Baixo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Linguagem: "
+
+[node name="Lingua" type="Label" parent="CanvasLayer/VBoxContainer/Baixo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "{lingua}"
+
+[node name="FimDeJogo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FimDeJogo"]
+position = Vector2(-62, 316)
+shape = SubResource("RectangleShape2D_6357i")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="body_entered" from="FimDeJogo" to="." method="_on_fim_de_jogo_body_entered"]

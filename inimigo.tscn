@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcy7y2yk05ueo"]
 
-[ext_resource type="Texture2D" uid="uid://d1w2he6irr55p" path="res://icon.svg" id="1_alwdx"]
+[ext_resource type="Texture2D" uid="uid://dlfcjbfm07a18" path="res://Bolinha.png" id="2_4g2t5"]
 [ext_resource type="Script" path="res://Inimigo.gd" id="2_v378w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us5bm"]
@@ -12,11 +12,10 @@ scale = Vector2(0.492187, 0.492187)
 script = ExtResource("2_v378w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_alwdx")
+texture = ExtResource("2_4g2t5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.000305176, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_us5bm")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_2rrvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6357i"]
-size = Vector2(68, 718.5)
+size = Vector2(130, 718.5)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2rrvb")
@@ -12,31 +12,23 @@ script = ExtResource("1_2rrvb")
 
 [node name="SpawnContainer" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1163, 51)
-
 [node name="Marker2D2" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1163, 198)
+position = Vector2(1164, 138)
 
 [node name="Marker2D3" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1166, 278)
+position = Vector2(1166, 249)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1164, 358)
+position = Vector2(1168, 347)
 
 [node name="Marker2D5" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1168, 523)
+position = Vector2(1168, 540)
 
 [node name="Marker2D6" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1168, 441)
-
-[node name="Marker2D7" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1165, 599)
-
-[node name="Marker2D8" type="Marker2D" parent="SpawnContainer"]
-position = Vector2(1163, 110)
+position = Vector2(1165, 438)
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,14 +43,15 @@ mouse_filter = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/GameOverTela"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverTela/CenterContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Fim de Jogo!!"
+theme_override_font_sizes/font_size = 68
+text = "  Fim de Jogo!!  "
 horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer"]
@@ -71,10 +64,51 @@ text = "  Jogar Novamente?  "
 layout_mode = 2
 theme_override_constants/line_spacing = 30
 theme_override_font_sizes/font_size = 48
+text = "'total acertos'"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/GameOverTela"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverTela/CenterContainer2"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="EscolhaLingua" type="Label" parent="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " Você consegue acertar
+qual linguagem era?"
+horizontal_alignment = 1
+
+[node name="Escolha1" type="Button" parent="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "oi"
+
+[node name="Escolha2" type="Button" parent="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "oi"
+
+[node name="Escolha3" type="Button" parent="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "oi"
+
+[node name="MsgAcerto" type="Label" parent="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 50
+theme_override_font_sizes/font_size = 32
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -102,6 +136,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="Baixo" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -115,12 +150,130 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "{lingua}"
 
+[node name="TelaInicial" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TelaInicial"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TelaInicial/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/TelaInicial/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 58
+text = "Trabalho LFA 4° Bimestre"
+
+[node name="Button" type="Button" parent="CanvasLayer/TelaInicial/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "   Começar?   "
+
+[node name="Tutorial" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Tutorial"]
+layout_mode = 2
+
+[node name="titulo" type="VBoxContainer" parent="CanvasLayer/Tutorial/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Tutorial/CenterContainer/titulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "Tutorial
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Tutorial/CenterContainer/titulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "- O jogo aborda o tema de Linguagens Formais.
+
+- Nele você irá encontrar um jogo interativo semelhante a um
+    'typing game', onde você tera que digitar a palavra que aparece em
+    baixo dos personagens.
+
+- Esses personagens representam Linguas diferentes que você precisa 
+    desvendar, pois no final será perguntado qual era.
+"
+
+[node name="TutorialContinuar" type="Button" parent="CanvasLayer/Tutorial/CenterContainer/titulo"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Continuar"
+
+[node name="Tutorial2" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Tutorial2"]
+layout_mode = 2
+
+[node name="titulo" type="VBoxContainer" parent="CanvasLayer/Tutorial2/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Tutorial2/CenterContainer/titulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "Tutorial
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Tutorial2/CenterContainer/titulo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "- Lembre-se quando for responder a pergunta final, o \"n\" que aparece se
+                                    refere ao fator repetição, ou seja:
+
+            -- Se tenho {aⁿ|n>0}, isso significa que 'a' pode se repetir varias 
+vezes de acordo com o valor de 'n', então se \"n = 3\", logo a palavra será
+                                                                 \"aaa\"
+            -- No sentido da explicação acima, 'n' irá ter um valor que seja
+                                          maior que o valor zero (n > 0)
+                                                           Boa Sorte!!
+
+"
+
+[node name="TutorialContinuar2" type="Button" parent="CanvasLayer/Tutorial2/CenterContainer/titulo"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Continuar"
+
 [node name="FimDeJogo" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FimDeJogo"]
-position = Vector2(-62, 316)
+position = Vector2(-93, 316)
 shape = SubResource("RectangleShape2D_6357i")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/GameOverTela/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer/Escolha1" to="." method="_on_escolha_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer/Escolha2" to="." method="_on_escolha_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOverTela/CenterContainer2/VBoxContainer/Escolha3" to="." method="_on_escolha_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/TelaInicial/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tutorial/CenterContainer/titulo/TutorialContinuar" to="." method="_on_tutorial_continuar_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tutorial2/CenterContainer/titulo/TutorialContinuar2" to="." method="_on_tutorial_continuar_2_pressed"]
 [connection signal="body_entered" from="FimDeJogo" to="." method="_on_fim_de_jogo_body_entered"]

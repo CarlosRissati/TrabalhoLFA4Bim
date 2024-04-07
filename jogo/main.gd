@@ -23,6 +23,7 @@ var Inimigo = preload("res://inimigo.tscn")
 var active_enemy = null
 var current_letter_index: int = -1
 var acertos_realizados: int = 0
+var speed_bool: bool = false
 
 var speed_atual: float = 1.0
 
@@ -83,15 +84,20 @@ func _on_spawn_timer_timeout():
 func spawn_enemy():
 	var enemy_instance = Inimigo.instantiate()
 	var spawns = spawn_container.get_children()
-	var index = randi() % spawns.size()
-	if (acertos_realizados % 5 == 0 && acertos_realizados != 0):
+	var index_s = randi() % spawns.size()
+	if (acertos_realizados % 5 == 0 && acertos_realizados != 0 && speed_bool == false):
 		speed_atual += 0.3
+		speed_bool = true
+	
+	if(acertos_realizados % 5 != 0):
+		speed_bool = false
+	
 	enemy_instance.speed += speed_atual
 	enemy_container.add_child(enemy_instance)
-	enemy_instance.global_position = spawns[index].global_position
+	enemy_instance.global_position = spawns[index_s].global_position
 
 
-func _on_fim_de_jogo_body_entered(body):
+func _on_fim_de_jogo_body_entered(_body):
 	game_over()
 
 func game_over():
@@ -102,8 +108,8 @@ func game_over():
 	current_letter_index = -1
 	escore.hide()
 	nomear_buttons()
-	for Inimigo in enemy_container.get_children():
-		Inimigo.queue_free()
+	for Inimigos in enemy_container.get_children():
+		Inimigos.queue_free()
 	reativar_botoes()
 
 

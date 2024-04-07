@@ -14,7 +14,7 @@ func _ready():
 	prompt.parse_bbcode(set_center_tags(prompt_text))
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_position.x -= speed 
 
 

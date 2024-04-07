@@ -28,7 +28,7 @@ position = Vector2(1168, 540)
 position = Vector2(1165, 438)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 1.2
+wait_time = 1.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

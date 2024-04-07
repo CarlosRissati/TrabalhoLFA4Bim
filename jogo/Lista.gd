@@ -9,7 +9,8 @@ var linguagens: = [
 	"{cⁿaⁿ|n>0}",
 	"{abⁿc|n>0}",
 	"{aᶦbʲcᵏ|i = j+k, j>0, k>0}",
-	"{aᶦbʲcᵏ|k = i+j, i>0, j>0}"
+	"{aᶦbʲcᵏ|k = i+j, i>0, j>0}",
+	"{aⁿb²ᵐccbᵖ|n≥1, m≥1, p≥1}"
 ]
 
 var dicionario = {
@@ -20,6 +21,7 @@ var dicionario = {
 	"{abⁿc|n>0}": ["abc","abbc","abbbc","abbbbc","abbbbbc"],
 	"{aᶦbʲcᵏ|i = j+k, j>0, k>0}": ["aabc","aaabbc","aaabcc","aaaabbcc","aaaabbbc"],
 	"{aᶦbʲcᵏ|k = i+j, i>0, j>0}": ["abcc","aabccc","abbccc","aabbcccc","abbbcccc"],
+	"{aⁿb²ᵐccbᵖ|n≥1, m≥1, p≥1}": ["abbccb", "abbbbccb", "aabbccbb", "aabbbbccbbb", "abbccbbb", "aaabbccb", "aaaabbccbbb", "abbccbbbbb", "aaaaabbccb"],
 }
 
 func get_prompt() -> String:
